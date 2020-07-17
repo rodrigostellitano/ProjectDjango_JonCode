@@ -1,0 +1,21 @@
+
+    Cria o projeto
+1. django-admin startproject mysite
+    ! Se quiser pode por um . no final para não repetir as duas pastas
+
+    Cria o app
+2. python manage.py startapp
+
+    Insere no Banco as tabelas
+3. python manage.py migrate      
+
+    Envia para o Banco $FALTA COMPLETAR
+4. python manage.py makemigrations
+
+    Cadastra o APP no settings do projeto
+
+5. nomedoprojeto/settings.py > INSTALLED_APPS > Incluir o nome do app
+
+
+    Criar o Admin (Superuser)
+6. python manage.py createsuperuser
