@@ -14,7 +14,14 @@
 <body>
     
     <header>
+        
+        <div class="nav-left">
         <h1><a href="/">Blog - Home</a></h1>
+        </div>
+        
+        <div class="nav-right">
+            <h1><a href="{% url 'post_new' %}"> +Nova Postagem</a></h1>
+        </div>
     </header>
     
     <div class='container'></div>
@@ -22,6 +29,9 @@
         {% block content %} {% endblock content %}
     
     </div>
+
+
+    {% block footer %}FOOTER {% endblock footer %}
 
 </body>
 </html>
