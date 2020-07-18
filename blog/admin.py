@@ -2,6 +2,7 @@ from django.contrib import admin
 from .models import *
 
 
+    #Cria filtros no admin
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
 
@@ -18,16 +19,3 @@ class PostAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug':('title',)}
 
 
-# Register your models here.
-
-#   title = models.CharField(max_length=250)
-#     slug  = models.CharField(max_length=250)
-#     author = models.ForeignKey(User,
-#                                 on_delete=models.CASCADE)
-#     content = models.TextField()
-#     published = models.DateTimeField(default=timezone.now)
-#     created = models.DateTimeField(auto_now_add=timezone.now)
-#     changed = models.DateTimeField(auto_now=True)
-#     status = models.CharField(max_length=10,
-#                                 choices=STATUS,
-#                                 default='rascunho')
