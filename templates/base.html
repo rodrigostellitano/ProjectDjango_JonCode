@@ -1,16 +1,27 @@
-{% load static%}
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     
-    <link rel="stylesheet" href="{% static 'style.css' %}">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    
     <title>{% block title %}  {% endblock title %}</title>
+
 </head>
 <body>
-
-    {% block content %} {% endblock content %}
     
+    <header>
+        <h1><a href="/">Blog - Home</a></h1>
+    </header>
+    
+    <div class='container'></div>
+        
+        {% block content %} {% endblock content %}
+    
+    </div>
+
 </body>
 </html>
