@@ -6,6 +6,16 @@
 
 {% block content %} 
 
+        {% if messages %}
+                <ul class="messages">
+                        {% for message in messages %}
+                                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                        {% endfor %}
+                </ul>
+        {% endif %}
+
+
+
   
         <div class='post-entry'>
                 
@@ -14,8 +24,8 @@
 
         </div>    
 
-        <a href="{{ object.get_absolute_url_update}}">Edit</a>
-
+        <a href="{{ object.get_absolute_url_update}}">Edit</a><br>
+        <a href="{{ object.get_absolute_url_delete}}">Delete</a> 
  
 
 

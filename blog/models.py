@@ -42,6 +42,9 @@ class Post(models.Model):
     def get_absolute_url_update(self):
         return reverse('post_update', args=[self.slug])
 
+    
+    def get_absolute_url_delete(self):
+        return reverse('post_delete', args=[self.slug])
 
 
     class Meta:
