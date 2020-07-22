@@ -25,14 +25,11 @@ class BlogDetailView(DetailView):
 class BlogCreateView(SuccessMessageMixin,CreateView):
     model = Post
     template_name = 'blog/post_new.html'
-    fields = '__all__'
+    fields = ('author', 'title','content')
     success_message = "%(fields)s - criado com sucesso!"
 
     def get_success_message(self, cleaned_data):
-        return self.success_message % dict(
-            cleaned_data,
-            fields=self.object.title,
-        )
+        return self.success_message % dict(cleaned_data,fields=self.object.title,)
 
 
 
@@ -41,12 +38,9 @@ class BlogUpdateView(SuccessMessageMixin, UpdateView):
     template_name = 'blog/post_update.html'
     fields = ('title','content')
     success_message = "%(fields)s - alterado com sucesso!"
-
+    
     def get_success_message(self, cleaned_data):
-        return self.success_message % dict(
-            cleaned_data,
-            fields=self.object.title,
-        )
+        return self.success_message % dict(cleaned_data,fields=self.object.title,)
 
 
 class BlogDeleteView(SuccessMessageMixin,DeleteView):

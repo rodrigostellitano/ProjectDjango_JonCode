@@ -1,7 +1,10 @@
 from django.db import models
+from django.dispatch import receiver
 from django.utils import timezone
 from django.contrib.auth.models import User
 from django.urls import reverse
+from django.utils.text import slugify
+from django.db.models.signals import post_save
 
 
 class PublishedManager(models.Manager):
@@ -40,11 +43,11 @@ class Post(models.Model):
         return reverse('post_detail', args=[self.slug])
 
     def get_absolute_url_update(self):
-        return reverse('post_update', args=[self.slug])
+        return reverse('post_update', args=[self.pk])
 
     
     def get_absolute_url_delete(self):
-        return reverse('post_delete', args=[self.slug])
+        return reverse('post_delete', args=[self.pk])
 
 
     class Meta:
@@ -55,4 +58,11 @@ class Post(models.Model):
         #return self.title
         return '{} - {}' .format(self.title, self.status)
 
-# Create your models here.
+
+@receiver(post_save,sender=Post,)
+def insert_slug(sender,instance,**kwargs,):
+    if kwargs.get('created',False):
+        print('Criando slug')
+    if not instance.slug:
+        instance.slug = slugify(instance.title)
+        return instance.save()
