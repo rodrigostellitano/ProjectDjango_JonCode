@@ -14,7 +14,9 @@
 <body>
     
     <header>
-        
+       
+
+
         <div class="nav-left">
         <h1><a href="/">Blog - Home</a></h1>
         </div>
@@ -24,6 +26,16 @@
         </div>
     </header>
     
+    {% if user.is_authenticated %}
+        <p>Olá {{user.username}}</p>
+        <a href="{% url 'logout' %}"> Logout</a>
+    {% else %}  
+        <p>Você não está logado!</p>
+        <a href="{% url 'login' %}">Login </a>
+
+    {% endif %}    
+
+
     <div class='container'></div>
         
         {% block content %} {% endblock content %}
