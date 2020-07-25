@@ -17,14 +17,29 @@
 
 
     {% for post in object_list %}
-        <div class='post-entry'>
-                
-                <h2><a href="{{post.get_absolute_url}}"> {{post.title }}</a></h2>
-                <p>{{ post.content }}</p>
+    <div class="post-preview">
+        <a href="{{post.get_absolute_url}}">
+          <h2 class="post-title">
+            {{post.title }}
+          </h2>
+          <h3 class="post-subtitle">
+            {{post.content }}
+          </h3>
+        </a>
+        <p class="post-meta">Posted by
+          <a href="#">Start Bootstrap</a>
+          on July 8, 2019</p>
+      </div>
+      <hr>
+      
 
-        </div>    
 
     {% endfor%}
+
+    <div class="clearfix">
+        <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
+      </div>
+
 
 
 {% endblock content %}

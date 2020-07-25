@@ -1,19 +1,26 @@
 {% extends 'base.html' %}
+{% load bootstrap %}
 
 {% block title %} Blog - Novo Post {% endblock title %}
 
 
 
 {% block content %} 
+<div class="container justify-content-center">
+  <div class="card">
+    <div class="card-header">
     <h1>Nova Postagem</h1>
-  
-    <form action="" method='post'>{% csrf_token %}
+</div>    
+<div class="card-body">
+  <form method="post" action=".">
+      {% csrf_token %}
 
-        {{form.as_p}}
-
-        <input type='submit' value='Salvar'>
+      {{ form|bootstrap }}
+      <button type="submit" class="btn btn-primary"> Login</button>        
     </form>
-
+  <div>
+<div>
+<div>
  
 
 
